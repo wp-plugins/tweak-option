@@ -1,0 +1,25 @@
+=== Tweak Option ===
+Contributors: opajaap
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=OpaJaap@OpaJaap.nl&item_name=Tweak-option&item_number=Support-Open-Source&currency_code=USD&lc=US
+Tags: developer, options, tweak
+Requires at least: 3.0.1
+Tested up to: 3.4
+Stable tag: trunk
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+This plugin is a developers tool to inspect, modify and remove entries from the wp options database table.
+
+== Description ==
+
+This plugin is a developers tool to inspect, modify and remove entries from the wp options database table.
+
+== Installation ==
+
+1. Activate the plugin through the 'Plugins' menu in WordPress
+1. You will find Tweak Option in the **Tools** admin menu.
+
+== Changelog ==
+
+= 1.0 =
+* Initial release.
