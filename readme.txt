@@ -8,11 +8,11 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin is a developers tool to inspect, modify and remove entries from the wp options database table.
+This plugin is a developers tool to inspect, add, modify and remove entries from the wp options database table.
 
 == Description ==
 
-This plugin is a developers tool to inspect, modify and remove entries from the wp options database table.
+This plugin is a developers tool to inspect, add, modify and remove entries from the wp options database table.
 
 == Installation ==
 
