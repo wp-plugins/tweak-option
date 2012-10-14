@@ -2,7 +2,7 @@
 /*
 Plugin Name: Tweak Option
 Description: Easily manage any WP option.
-Version: 1.0.
+Version: 1.1.
 Author: J.N. Breetvelt a.k.a OpaJaap
 Author URI: http://www.opajaap.nl/
 Plugin URI: http://wordpress.org/extend/plugins/tweak-option/
@@ -46,7 +46,7 @@ global $wpdb;
 		// Save changes ?
 		if ( isset( $_POST['submit'] ) && $_POST['submit'] == 'Save' ) {
 			delete_option($_POST['name']);
-			add_option($_POST['name'], $_POST['value'], '', $_POST['autoload']);
+			add_option($_POST['name'], html_entity_decode(stripslashes($_POST['value'])), '', $_POST['autoload']);
 			echo '<h3 style="color:green; font-weight:bold" >"'.$_POST['name'].'" saved<br /></h3>';
 		}
 		// Cancel changes ?
