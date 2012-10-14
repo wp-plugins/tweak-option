@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=OpaJa
 Tags: developer, options, tweak
 Requires at least: 3.0.1
 Tested up to: 3.4
-Version 1.1
+Version 1.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -21,7 +21,8 @@ This plugin is a developers tool to inspect, add, modify and remove entries from
 1. You will find Tweak Option in the **Tools** admin menu.
 
 == Changelog ==
-
+= 1.2 =
+* Arrays are now also updated correctly.
 = 1.1 =
 * Fix for special characters.
 = 1.0 =
