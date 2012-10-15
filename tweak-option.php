@@ -47,7 +47,7 @@ global $wpdb;
 		if ( isset( $_POST['submit'] ) && $_POST['submit'] == 'Save' ) {
 			update_option($_POST['name'], html_entity_decode(stripslashes($_POST['value'])));	// In case it did not exist
 			$iret = $wpdb->query($wpdb->prepare("UPDATE `".TWOPTIONS."` SET `option_value` = %s, `autoload` = %s WHERE `option_name` = %s", html_entity_decode(stripslashes($_POST['value'])), $_POST['autoload'], $_POST['name']));
-			if ( $iret ) echo '<h3 style="color:green; font-weight:bold" >"'.$_POST['name'].'" saved<br /></h3>';
+			if ( $iret !== false ) echo '<h3 style="color:green; font-weight:bold" >"'.$_POST['name'].'" saved<br /></h3>';
 			else echo '<h3 style="color:red; font-weight:bold" >Saving "'.$_POST['name'].'" failed<br /></h3>';
 		}
 		// Cancel changes ?
@@ -148,7 +148,7 @@ global $wpdb;
 					</tr>
 					<tr>
 						<td style="font-wight:bold;" >Value</td>
-						<td><textarea name="value" style="width:100%; height:300px; " ><?php echo $data['option_value'] ?></textarea></td>
+						<td><textarea name="value" style="width:100%; height:300px; " ><?php echo esc_textarea($data['option_value']) ?></textarea></td>
 					</tr>
 					<tr>
 						<td style="font-weight:bold" >Autoload</td>
