@@ -2,7 +2,7 @@
 /*
 Plugin Name: Tweak Option
 Description: Easily manage any WP option.
-Version: 1.3
+Version: 1.4
 Author: J.N. Breetvelt a.k.a OpaJaap
 Author URI: http://www.opajaap.nl/
 Plugin URI: http://wordpress.org/extend/plugins/tweak-option/
@@ -135,6 +135,7 @@ global $wpdb;
 							<table class="widefat" >
 								<thead style="font-weight: bold;" >
 									<tr>
+										<th>ID</th>
 										<th>Option name</th>
 										<th>Option value</th>
 										<th>Autoload</th>
@@ -164,6 +165,7 @@ global $wpdb;
 										$value = $option['option_value'];
 									}
 									echo '<tr id="'.$option['option_name'].'">
+											<td>'.$option['option_id'].'</td>
 											<td title="'.$option['option_name'].'" style="cursor:pointer;" >'.$name.'</td>
 											<td title="'.esc_attr($option['option_value']).'" style="cursor:pointer;" >'.htmlspecialchars($value).'</td>
 											<td>'.$option['autoload'].'</td>
