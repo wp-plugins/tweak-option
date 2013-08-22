@@ -34,7 +34,7 @@ function twop_add_js() {
 					if ( xmlhttp.readyState == 4 && xmlhttp.status == 200 ) {
 						if ( xmlhttp.responseText == "Done" ) {
 							twopHtmlBackup[option] = jQuery("#"+option).html();
-							jQuery("#"+option).html("<td>"+option+"</td><td style=\"color:red; font-weight:bold;\" >Removed</td><td></td><td></td><td style=\"color:green; font-weight:bold; cursor:pointer;\" onclick=\"twopAjaxUndo(\'"+option+"\')\">Undo</td>");
+							jQuery("#"+option).html("<td></td><td>"+option+"</td><td style=\"color:red; font-weight:bold;\" >Removed</td><td></td><td></td><td style=\"color:green; font-weight:bold; cursor:pointer;\" onclick=\"twopAjaxUndo(\'"+option+"\')\">Undo</td>");
 						}
 						else {
 							alert(xmlhttp.responseText);
@@ -54,12 +54,9 @@ function twop_add_js() {
 				data += "&option-value="+encodeURIComponent(twopValueBackup[option])+"&option-autoload="+twopAutoBackup[option];
 				xmlhttp.onreadystatechange = function() {
 					if ( xmlhttp.readyState == 4 && xmlhttp.status == 200 ) {
-						if ( xmlhttp.responseText == "Done" ) {
-							jQuery("#"+option).html(twopHtmlBackup[option]);
-						}
-						else {
-							alert(xmlhttp.responseText);
-						}
+						var id = xmlhttp.responseText;
+						jQuery("#"+option).html(twopHtmlBackup[option]);
+						jQuery("#"+option+"-id").html(id);
 						jQuery("#twop-message").html("");
 					}
 				}
@@ -165,7 +162,7 @@ global $wpdb;
 										$value = $option['option_value'];
 									}
 									echo '<tr id="'.$option['option_name'].'">
-											<td>'.$option['option_id'].'</td>
+											<td id="'.$option['option_name'].'-id">'.$option['option_id'].'</td>
 											<td title="'.$option['option_name'].'" style="cursor:pointer;" >'.$name.'</td>
 											<td title="'.esc_attr($option['option_value']).'" style="cursor:pointer;" >'.htmlspecialchars($value).'</td>
 											<td>'.$option['autoload'].'</td>
@@ -257,9 +254,9 @@ global $wpdb;
 		case 'undo':
 			$value = html_entity_decode(stripslashes($_REQUEST['option-value']));
 			$autoload = $_REQUEST['option-autoload'];
-			$iret = $wpdb->query($wpdb->prepare("INSERT INTO `".TWOPTIONS."` (`option_name`, `option_value`, `autoload`) VALUES(%s, %s, %s)", $option, $value, $autoload));
-			if ( $iret !== false ) echo 'Done';
-			else echo 'Error: unable to undo delete '.$option;
+			$wpdb->query($wpdb->prepare("INSERT INTO `".TWOPTIONS."` (`option_name`, `option_value`, `autoload`) VALUES(%s, %s, %s)", $option, $value, $autoload));
+			$id = $wpdb->get_var($wpdb->prepare("SELECT `option_id` FROM `".TWOPTIONS."` WHERE `option_name` = %s", $option));
+			echo $id;
 			break;
 		default:
 			echo 'Non implemented action';
