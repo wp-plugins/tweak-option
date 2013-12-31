@@ -100,7 +100,7 @@ global $wpdb;
 			if ( isset( $_POST['twop-new'] ) ) {
 				update_option($_POST['name'], html_entity_decode(stripslashes($_POST['value'])));	// First create
 			}
-			$iret = $wpdb->query($wpdb->prepare("UPDATE `".TWOPTIONS."` SET `option_value` = %s, `autoload` = %s WHERE `option_name` = %s", html_entity_decode(stripslashes($_POST['value'])), $_POST['autoload'], $_POST['name']));
+			$iret = $wpdb->query($wpdb->prepare( "UPDATE `".TWOPTIONS."` SET `option_value` = %s, `autoload` = %s WHERE `option_name` = %s", html_entity_decode( stripslashes( $_POST['value'] ) ), $_POST['autoload'], $_POST['name'] ) );
 			if ( $iret !== false ) echo '<h3 id="twop-message" style="color:green; font-weight:bold" >"'.$_POST['name'].'" saved<br /></h3>';
 			else echo '<h3 id="twop-message" style="color:red; font-weight:bold" >Saving "'.$_POST['name'].'" failed<br /></h3>';
 		}
@@ -111,8 +111,8 @@ global $wpdb;
 
 		// Display table
 		$from = get_option('twop_from', '');
-		$query = $wpdb->prepare('SELECT * FROM `' . TWOPTIONS . '` WHERE `option_name` >= %s ORDER BY `option_name`', $from);
-		$options = $wpdb->get_results( $query, 'ARRAY_A' ); 
+		$query = $wpdb->prepare( 'SELECT * FROM `' . TWOPTIONS . '` WHERE `option_name` >= %s ORDER BY `option_name`', $from );
+		$options = $wpdb->get_results( $query, ARRAY_A ); 
 		?>
 		<div class="wrap" >
 			<div id="icon-tools" class="icon32">
@@ -193,7 +193,7 @@ global $wpdb;
 
 	$new = ( $option == '' );
 	
-	$data = $wpdb->get_row($wpdb->prepare("SELECT * FROM `" . TWOPTIONS . "` WHERE `option_name` = %s", $option), 'ARRAY_A');
+	$data = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM `" . TWOPTIONS . "` WHERE `option_name` = %s", $option ), ARRAY_A );
 	if ( ! $data ) $data = array( 'option_name' => 'The name of the option', 'option_value' => 'Enter the option value', 'autoload' => 'yes' );
 	?>
 		<div class="wrap" >
@@ -215,7 +215,7 @@ global $wpdb;
 					</tr>
 					<tr>
 						<td style="font-wight:bold;" >Value</td>
-						<td><textarea name="value" style="width:100%; height:300px; " ><?php echo esc_textarea($data['option_value']) ?></textarea></td>
+						<td><textarea name="value" style="width:100%; height:300px; padding:6px;" ><?php echo esc_textarea( $data['option_value'] ) ?></textarea></td>
 					</tr>
 					<tr>
 						<td style="font-weight:bold" >Autoload</td>
@@ -254,7 +254,7 @@ global $wpdb;
 		case 'undo':
 			$value = html_entity_decode(stripslashes($_REQUEST['option-value']));
 			$autoload = $_REQUEST['option-autoload'];
-			$wpdb->query($wpdb->prepare("INSERT INTO `".TWOPTIONS."` (`option_name`, `option_value`, `autoload`) VALUES(%s, %s, %s)", $option, $value, $autoload));
+			$wpdb->query( $wpdb->prepare( "INSERT INTO `".TWOPTIONS."` (`option_name`, `option_value`, `autoload`) VALUES(%s, %s, %s)", $option, $value, $autoload ) );
 			$id = $wpdb->get_var($wpdb->prepare("SELECT `option_id` FROM `".TWOPTIONS."` WHERE `option_name` = %s", $option));
 			echo $id;
 			break;

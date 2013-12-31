@@ -3,8 +3,8 @@ Contributors: opajaap
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=OpaJaap@OpaJaap.nl&item_name=Tweak-option&item_number=Support-Open-Source&currency_code=USD&lc=US
 Tags: developer, options, tweak
 Requires at least: 3.0.1
-Tested up to: 3.6
-Version 1.5
+Tested up to: 3.8
+Version 1.6
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -21,6 +21,8 @@ This plugin is a developers tool to inspect, add, modify and remove entries from
 1. You will find Tweak Option in the **Tools** admin menu.
 
 == Changelog ==
+= 1.6 =
+* Compatible with WP 3.8
 = 1.5 =
 * Undo now shows the new option_id correctly
 = 1.4 =
