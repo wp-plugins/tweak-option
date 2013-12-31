@@ -2,7 +2,7 @@
 /*
 Plugin Name: Tweak Option
 Description: Easily manage any WP option.
-Version: 1.5
+Version: 1.6
 Author: J.N. Breetvelt a.k.a OpaJaap
 Author URI: http://www.opajaap.nl/
 Plugin URI: http://wordpress.org/extend/plugins/tweak-option/
