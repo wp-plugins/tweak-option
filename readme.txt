@@ -3,7 +3,7 @@ Contributors: opajaap
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=OpaJaap@OpaJaap.nl&item_name=Tweak-option&item_number=Support-Open-Source&currency_code=USD&lc=US
 Tags: developer, options, tweak
 Requires at least: 3.0.1
-Tested up to: 3.8
+Tested up to: 3.9
 Version 1.6
 Stable tag: trunk
 License: GPLv2 or later
